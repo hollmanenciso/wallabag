@@ -6,7 +6,7 @@ With this application you will not miss content anymore. Click, save, read it wh
 
 This container are on beta version. just with the docker run will deploy the wallabag environment app without the database server.
 
-  docker run hollman/wallabag
+*docker run hollman/wallabag*
 
 then open your browser and finis the installation
 
