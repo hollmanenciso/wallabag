@@ -1,13 +1,5 @@
-This is an unofficial wallabag container.
+This is an unofficial elgg ver 2.0.1 container.
 
-"wallabag is a self hostable application for saving web pages. Unlike other services, wallabag is free (as in freedom) and open source.
+wikipedia -- "Elgg is open source social networking software that provides individuals and organizations with the components needed to create an online social environment. It offers blogging, microblogging, file sharing, networking, groups and a number of other features. It was also the first platform to bring ideas from commercial social networking platforms to educational software."
 
-With this application you will not miss content anymore. Click, save, read it when you want. It saves the content you select so that you can read it when you have time." -- more info: https://www.wallabag.org/
 
-This container are on beta version. just with the docker run will deploy the wallabag environment app without the database server.
-
-*docker run hollman/wallabag*
-
-then open your browser and finis the installation
-
--- i promise update this container to deploy all the app with few steps

@@ -3,17 +3,21 @@ MAINTAINER Hollman Enciso <hollman.enciso@gmail.com>
 RUN apt-get update && apt-get -y dist-upgrade
 
 #Install the neccesary packages
-RUN apt-get -y install apache2 php5 php5-gd php5-imap php5-mcrypt php5-memcached php5-mysql mysql-client php5-curl php5-tidy php5-sqlite curl git sqlite3
+RUN apt-get -y install apache2 php5 php5-gd php5-imap php5-mcrypt php5-memcached php5-mysql mysql-client php5-curl php5-tidy php5-sqlite curl wget unzip
 
 #This will install the required dependency Twig via Composer
-RUN curl -sS https://getcomposer.org/installer | php
-RUN  mv composer.phar /usr/local/bin/composer
-#RUN cd /var/www/html/ && /usr/local/bin/composer install
-RUN rm -rf /var/www/html/*
+RUN wget -qO /tmp/elgg.zip https://elgg.org/getelgg.php?forward=elgg-2.0.1.zip
+RUN rm -fr /var/www/html
+RUN unzip /tmp/elgg.zip  -d /tmp/
+RUN rm /tmp/elgg.zip
+RUN mv /tmp/elgg-* /var/www/html
 
 #cloning the project
-RUN git clone https://github.com/wallabag/wallabag.git /var/www/html/
-RUN chown -R www-data: /var/www/html/
+
+RUN a2enmod rewrite
+RUN mkdir /var/www/html/data
+RUN chown -R www-data.www-data /var/www/html
+
 
 #setting the document root volume
 VOLUME ["/var/www/html/"]
